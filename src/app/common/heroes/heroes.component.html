@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">      
+      <div class="col-4 mt-3 mb-3">  
+        <input [(ngModel)]="phrase" class="form-control mr-sm-2" type="text" placeholder="Search">
+      </div> 
+    </div> 
+      <div class="row">
+        <div class="col-12">
+          <table class="table table-striped">
+            <thead>
+              <tr>                
+                <th (click)="columnSelect('id')">id</th>               
+                <th (click)="columnSelect('name')">Name</th>               
+                <th (click)="columnSelect('superPower')">Superpower</th>               
+                <th (click)="columnSelect('address')">Address</th>               
+              </tr>
+            </thead>
+            <tbody> 
+  
+              <tr *ngFor="let hero of heroList | filter:'name':phrase | sorter:columnKey">                
+                <td>{{hero.id}}</td>
+                <td>{{hero.name}}</td>
+                <td>{{hero.superPower}}</td>
+                <td>{{hero.address}}</td>
+                
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+      
+  
+    </div>
